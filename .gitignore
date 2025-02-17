@@ -1,0 +1,15 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin
+tmp
+temp/
+testbin/*
+Dockerfile.cross
+.DS_Store
+.vscode
+.idea/
+
