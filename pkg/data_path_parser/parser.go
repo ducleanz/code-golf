@@ -5,12 +5,12 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"code_golf/pkg/types"
 )
 
-type PathSegments []any
-
-func ParsePath(path string) (PathSegments, error) {
-	var result PathSegments
+func ParsePath(path string) (types.PathSegments, error) {
+	var result types.PathSegments
 	if path == "." {
 		return result, nil
 	}
@@ -23,7 +23,7 @@ func ParsePath(path string) (PathSegments, error) {
 	}
 
 	// Regular expressions to match different parts of the path
-	re := regexp.MustCompile(`\.(?:(\d+)|"([^"]*)")`)
+	re := regexp.MustCompile(`\.(?:(-?\d+)|"([^"]*)")`)
 	matches := re.FindAllStringSubmatch(path, -1)
 
 	if matches == nil {
